@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, inital-scale = 1.0">
+        <title>Access Module</title>
+        <link rel="stylesheet" href="Access.css">
+
+<body>
+        <div class="container">
+                <div class="blueBg">
+                        <div style="top: 0;" class="box signin">
+                                <h2>Already have an account ?</h2>
+                                <button class="signinBtn">Sign in</button>
+                        </div>
+                        <div class="box signup">
+                                <h2>Don't have an account ?</h2>
+                                <button class="signupBtn">Sign up</button>
+                        </div>
+                </div>
+                <div class="formBx">
+                        <div class="form signinForm">
+                                <form action="/login" method="post">
+                                        <h3>Sign In</h3>
+                                        <input type="email" placeholder="Email" name="email" id="email" />
+                                        <input type="password" placeholder="Password" name="password" id="Password" />
+                                        <a href="user_dashboard.html" target="_blank">
+                                                <input type="submit" value="Login"> </a>
+                                        <a href="#" class="forgot"> Forgot Password?</a>
+                                </form>
+                        </div>
+                        <div class="form signupForm">
+                                <form action="/signup" method="POST">
+
+
+                                        <h3>Sign Up</h3>
+                                        <input type="text" placeholder="Full Name" name="fullName" />
+                                        <input type="email" placeholder="Email" name="email" id="email" />
+                                        <input type="number" placeholder="Phone" name="phone" id="phone" />
+                                        <input type="password" placeholder="Password" name="password" id="Password" />
+                                        <input type="password" placeholder="Confirm Password" name="confirmPassword"
+                                                id="Confirm_Password">
+                                        <a href="admin_dashboard.html" target="_blank"> <input type="submit"
+                                                        value="Register"> </a>
+
+                                </form>
+                        </div>
+
+                </div>
+        </div>
+
+        <script>
+                const signinBtn = document.querySelector( '.signinBtn' );
+                const signupBtn = document.querySelector( '.signupBtn' );
+                const formBx = document.querySelector( '.formBx' );
+                const body = document.querySelector( 'body' );
+
+                signupBtn.onclick = function () {
+                        formBx.classList.add( 'active' );
+                        body.classList.add( 'active' );
+                }
+
+                signinBtn.onclick = function () {
+                        formBx.classList.remove( 'active' );
+                        body.classList.remove( 'active' );
+                }
+        </script>
+</body>
+
+</html>
