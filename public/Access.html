@@ -21,10 +21,11 @@
                 </div>
                 <div class="formBx">
                         <div class="form signinForm">
-                                <form action="/login" method="post">
+                                <form action="/login" method="POST">
                                         <h3>Sign In</h3>
-                                        <input type="email" placeholder="Email" name="email" id="email" />
-                                        <input type="password" placeholder="Password" name="password" id="Password" />
+                                        <input type="email" placeholder="Email" value="email" name="email" id="email" />
+                                        <input type="password" placeholder="Password" value="password" name="password"
+                                                id="Password" />
                                         <a href="user_dashboard.html" target="_blank">
                                                 <input type="submit" value="Login"> </a>
                                         <a href="#" class="forgot"> Forgot Password?</a>
@@ -32,18 +33,15 @@
                         </div>
                         <div class="form signupForm">
                                 <form action="/signup" method="POST">
-
-
                                         <h3>Sign Up</h3>
-                                        <input type="text" placeholder="Full Name" name="fullName" />
-                                        <input type="email" placeholder="Email" name="email" id="email" />
-                                        <input type="number" placeholder="Phone" name="phone" id="phone" />
-                                        <input type="password" placeholder="Password" name="password" id="Password" />
-                                        <input type="password" placeholder="Confirm Password" name="confirmPassword"
-                                                id="Confirm_Password">
-                                        <a href="admin_dashboard.html" target="_blank"> <input type="submit"
-                                                        value="Register"> </a>
-
+                                        <input type="text" placeholder="Full Name" value="" name="fullName" />
+                                        <input type="email" placeholder="Email" name="email" value="" />
+                                        <input type="password" placeholder="Password" name="password" value=""
+                                                id="Password" />
+                                        <input type="password" placeholder="Confirm Password" value=""
+                                                name="confirmPassword" id="Confirm_Password" />
+                                        <a href="admin_dashboard.html" target="_blank">
+                                                <input type="submit" value="Register"> </a>
                                 </form>
                         </div>
 

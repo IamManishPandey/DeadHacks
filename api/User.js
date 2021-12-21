@@ -7,7 +7,6 @@ const User = require( "../models/User" );
 const UserVerification = require( '../models/UserVerification' );
 const PasswordReset = require( '../models/PasswordReset' );
 
-
 const path = require( "path" )
 const router = express.Router();
 
@@ -51,15 +50,22 @@ router.get( '/faculty', ( req, res ) => {
 router.get( '/login', ( req, res ) => {
     res.status( 202 ).render( 'Access.hbs' )
 } );
+router.get( '/facultylogin', ( req, res ) => {
+    res.status( 202 ).render( 'Faculty.hbs' )
+} );
 
 router.post( '/signup', async ( req, res ) => {
 
-    let { fullName, email, phone, password, confirmPassword } = req.body;
+    // let { fullName, email, password, confirmPassword } = req.body;
+    const fullName = req.body.fullName;
+    const email = req.body.email;
+    const password = req.body.password;
+    const confirmPassword = req.body.confirmPassword;
     // email = email.trim();
 
     // password = password.trim();
 
-    if ( !fullName || !email || !phone || !password || !confirmPassword ) {
+    if ( !fullName || !email || !password || !confirmPassword ) {
         res.json( {
             status: "FAILED",
             message: "Fill All Fields"
@@ -95,12 +101,11 @@ router.post( '/signup', async ( req, res ) => {
             } else {
                 //Try to ctreate new user`
                 //hashing password
-                const saltRounds = 10;
-                bcrypt.hash( password, saltRounds ).then( hashedPassword => {
+                // const saltRounds = 10;
+                bcrypt.hash( password, 10 ).then( hashedPassword => {
                     const newUser = new User( {
                         fullName,
                         email,
-                        phone,
                         password: hashedPassword,
                         verified: false,
 
@@ -110,13 +115,12 @@ router.post( '/signup', async ( req, res ) => {
                         .then( ( data ) => {
                             //Send verification message
                             sendVerificationEmail( data, res );
-                            res.sendFile( path.join( __dirname, './../views/Access.html' ) );
+                            // res.sendFile( path.join( __dirname, './../views/Access.html' ) );
                             res.json( {
                                 status: "SUCCESS",
                                 message: "Email Sent For verification",
                                 data: data
                             } )
-
                         } )
                         .catch( error => {
                             console.log( error )

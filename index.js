@@ -27,7 +27,6 @@ app.use( UserRouter );
 app.use( express.urlencoded( { extended: false } ) );
 var bodyParser = require( 'body-parser' );
 app.use( bodyParser.json() );
-app.use( bodyParser.urlencoded( { extended: true } ) );
 
 
 const staticPath = path.join( __dirname, './public' )
